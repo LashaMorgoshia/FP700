@@ -1,0 +1,485 @@
+Error code\tError name\tDescription
+-100001\tERR_IO\tGeneral error in fiscal device: In - out error( cannot read or write )
+-100002\tERR_CHECKSUM\tGeneral error in fiscal device: Wrong checksum
+-100003\tERR_END_OF_DATA\tGeneral error in fiscal device: No more data
+-100004\tERR_NOTFOUND\tGeneral error in fiscal device: The element is notfound
+-100005\tERR_NO_RECORDS\tGeneral error in fiscal device: There are no recordsfound
+-100006\tERR_ABORTED\tGeneral error in fiscal device: The operation is aborted
+-100007\tERR_WRONG_MODE\tWrong mode( standart training...) is selected.
+-100008\tERR_NOT_READY\tGeneral error in fiscal device: Device is not ready
+-100009\tERR_NOTHING_TO_PRINT\tGeneral error in fiscal device: Nothing to print
+-100100\tERR_FM_BUSY\tFiscal memory error: Fiscal memory is busy
+-100101\tERR_FM_FAILURE\tFiscal memory error: Fiscal memory failure. Could not read or write
+-100102\tERR_FM_WRITE_PROTECTED\tFiscal memory error: Forbidden write in fiscal memory
+-100103\tERR_FM_WRONG_ADDRESS\tFiscal memory error: Wrong address in fiscal memory
+-100104\tERR_FM_WRONG_SIZE\tFiscal memory error: Wrong size in fiscal memory
+-100105\tERR_FM_NOT_CONNECTED\tFiscal memory error: Fiscal memory is not connected
+-100106\tERR_FM_WRONG_CHECK_SUM\tFiscal memory error: Wrong checksum in fiscal memory( invalid data )
+-100107\tERR_FM_BLOCK_IS_EMPTY\tFiscal memory error: Empty block in fiscal memory
+-100108\tERR_FM_MAX_NUMBER\tFiscal memory error: Maximum number of block infiscal memory
+-100109\tERR_FM_WRONG_RANGE\tFiscal memory error: Wrong range in fiscal memory
+-100110\tERR_FM_EMPTY_RANGE\tFiscal memory error: Empty range in fiscal memory
+-100111\tERR_FM_NEW_MODULE\tFiscal memory error: New module in fiscal memory
+-100112\tERR_FM_NOT_EMPTY\tFiscal memory error: Fiscal memory is not empty
+-100113\tERR_FM_NOT_EQUAL\tFiscal memory error: Fiscal memory is not equal
+-100114\tERR_FM_FULL\tFiscal memory error: Fiscal memory is full
+-100115\tERR_FM_NEED_UPDATE\tFiscal memory error: Fiscal memory needs update
+-100116\tERR_FM_BLOCKED\tFiscal memory error: Fiscal memory is blocked
+-100400\tERR_LTP_VCCERR\tLine thermal printer mechanism error: Power supplyerror (33 V)
+-100401\tERR_LTP_SVPERR\tLine thermal printer mechanism error: Power supply
+-100402\tERR_LTP_STHERR\tLine thermal printer mechanism error: Headoverheating
+-100403\tERR_LTP_PESENS\tLine thermal printer mechanism error: Paper end
+-100404\tERR_LTP_HDSENS\tLine thermal printer mechanism error: Cover is open
+-100405\tERR_LTP_NESENS\tLine thermal printer mechanism error: Near paper end
+-100406\tERR_LTP_MKSENS\tLine thermal printer mechanism error: Mark sensor -
+-100407\tERR_LTP_CUTERR\tLine thermal printer mechanism error: Cutter error
+-100408\tERR_LTP_PR_ERR\tLine thermal printer mechanism error: Not used
+-100409\tERR_LTP_PR_BUSY\tLine thermal printer mechanism error: Not used
+-100410\tERR_LTP_BZLPDEC\tLine thermal printer mechanism error: Not used
+-100411\tERR_LTP_BZLCLMP\tLine thermal printer mechanism error: Not used
+-100412\tERR_LTP_CHARGE_MODE\tLine thermal printer mechanism error: Not used
+-100413\tERR_LTP_INZERR_MODE\tLine thermal printer mechanism error: Not used
+-100414\tERR_LTP_MOTOR_OVERRUN\tPrinter on time is overrun.
+-100500\tERR_PROGRAM_SELF_CHECK_ERROR\tSystem error: Memory structure error
+-100501\tERR_SRAM_ERROR\tSystem error: Error in RAM
+-100502\tERR_FLASH_ERROR\tSystem error: Flash memory error
+-100503\tERR_SDCARD_ERROR\tSystem error: SD card error
+-100504\tERR_INVALID_MSG_FILE\tSystem error: Invalid message file
+-100505\tERR_FM_ERROR\tSystem error: Fiscal memory error( could not write or read )
+-100506\tERR_NO_RAM_BATTERY\tSystem error: No RAM battery
+-100507\tERR_SAM_ERROR\tSystem error: SAM module error
+-100508\tERR_RTC_ERROR\tSystem error: Real time clock error
+-100509\tERR_PROGRAM_EXRAM_CHECK_ERROR\tSystem error: Memory error
+-100510\tERR_SDCARD_WRONG_SIZE\tSystem error: The size of SD card is wrong.
+-100511\tERR_TPM_ERROR\tSystem error: TPM module error
+-101000\tERR_NO_HEAP_MEMORY\tCommon logical error: No heap memory( cannot allocate memory for operation )
+-101001\tERR_FILE_MANIPULATE\tCommon logical error: File manipulate error
+-101003\tERR_REJECTED\tCommon logical error: Operation is rejected
+-101004\tERR_BAD_INPUT\tCommon logical error: Bad input. Some of the data or parameters are incorrect
+-101005\tERR_IAP\tCommon logical error: In Application Programming error
+-101006\tERR_NOT_POSSIBLE\tCommon logical error: The execution of the operation is not possible
+-101007\tERR_TMOUT\tCommon logical error: Timeout. The time for waiting execution is out
+-101007\tERR_TIMEOUT\tCommon logical error: Timeout. The time for waiting execution is out
+-101008\tERR_INVALID_TIME\tCommon logical error: Invalid time
+-101009\tERR_CANCELLED\tCommon logical error: The operation is cancelled
+-101010\tERR_INVALID_FORMAT\tCommon logical error: Invalid format
+-101011\tERR_INVALID_DATA\tCommon logical error: Invalid data
+-101012\tERR_PARSE_ERROR\tCommon logical error: Data parsing error
+-101013\tERR_HARDWARE_CONFIGURATION\tCommon logical error: Hardware configuration error
+-101014\tERR_ACCESS_DENIED\tERR_ACCESS_DENIED
+-101015\tERR_BAD_DATA_LENGTH\tWrong data length
+-101016\tERR_VERIFY_Z\tError during verification of Z reports
+-101017\tERR_NO_PERMISSION\tCommon logical error: No permission
+-101500\tERR_NO_UPDATE\tUpdate error: No update. The device is up to date
+-101501\tERR_UPDATE_IN_PROGRESS\tUpdate error: Update is already in progress
+-102000\tERR_LOW_BATTERY\tBattery error: Low battery
+-102001\tERR_LOW_BATTERY_WARNING\tBattery error: Low battery warning
+-102002\tERR_OPER_WRONG_PASSWORD\tOperator error: Wrong operator password
+-102003\tERR_IDNUMBER_IS_EMPTY\tECR error: ID number is empty
+-102004\tERR_NOT_FOUND_BLUETOOTH\tBluetooth error: Bluetooth is not found
+-102005\tERR_DISPLAY_DISCONNECTED\tDisplay error: Display is not connected
+-102006\tERR_PRINTER_DISCONNECTED\tPrinter error: Printer is not connected
+-102007\tERR_SD_NOT_PRESENT\tSD card error: SD card not present
+-102008\tERR_SD2_NOT_PRESENT\tSD card error: SD2 card not present
+-102009\tERR_VAT_RATES_ARE_EMPTY\tECR error: VAT rates is not set.
+-102010\tERR_HEADER_IS_EMPTY\tECR error: Header lines are empty.
+-102011\tERR_ZDDS_NUM_IS_EMPTY\tUser is registered by VAT but number of the user is not entered.
+-102012\tERR_FMNUMBER_IS_EMPTY\tECR error: FM number is empty
+-102013\tERR_SERVICEMAN_NAME_IS_EMPTY\tECR error: Serviceman name is empty
+-102014\tERR_SERVICEMAN_ID_IS_EMPTY\tECR error: Serviceman ID is empty
+-102015\tERR_TAXOFFICE_ID_IS_EMPTY\tECR error: Tax office ID is empty!
+-102016\tERR_WRONG_FORMAT\tECR error: Wrong format
+-102017\tERR_TAXNUMBER_IS_EMPTY\tECR error: TAX number is empty
+-102018\tERR_WRONG_IDNUMBER\tECR error: ID number is wrong
+-102019\tERR_DATETIME_EARLIER_THAN_PREV_Z\tECR error: Date and time are earlier than date and time of previous Z report.
+-102020\tERR_NEED_SOFTWARE_PASSWORD\tECR error: The software password is not entered
+-103000\tERR_PLUDB_NOT_FOUND\tPLU database error: PLU database is not found
+-103001\tERR_PLUDB_PLUCODE_EXISTS\tPLU database error: PLU code already exists
+-103002\tERR_PLUDB_BARCODE_EXISTS\tPLU database error: Barcode already exists
+-103003\tERR_PLUDB_FULL\tPLU database error: PLU database is full
+-103004\tERR_P_HAVE_TURNOVER\tPLU database error: PLU has turnover
+-103005\tERR_PLUDB_NAME_EXISTS\tPLU database error: In the PLU base has an article with same name.
+-103006\tERR_PLUDB_NAMES_NOT_UNIQUE\tPLU database error: PLU name is not unique.
+-103007\tERR_PLUDB_FORMAT_INCOMPATIBLE\tPLU database error: Database format is not compatible.
+-103008\tERR_PLUDB_CAN_NOT_OPEN\tCan't open the PLU database file
+-104000\tERR_NEED_Z_REPORT\tService operation error: Z report is needed for this operation
+-104001\tERR_NEED_SERVICE_JUMPER\tService operation error: Service jumper is needed for this operation
+-104002\tERR_NEED_SERVICE_PASSWORD\tService operation error: Service password is needed for this operation
+-104003\tERR_FORBIDEN\tService operation error: The operation is forbidden
+-104004\tERR_NEED_SERVICE_INTERVENTION\tService operation error: Service intervention is needed
+-104005\tERR_NEED_ALL_CLEARING_REPORTS\tService operation error: All clearing report is needed.
+-104006\tERR_Z_REPORT_CLOSED\tService operation error: Z report closed.
+-104007\tERR_NEED_MONTH_REPORT\tService operation error: Montly report needed.
+-104008\tERR_NEED_YEAR_REPORT\tService operation error: Year report needed.
+-104009\tERR_NEED_BACKUP\tService operation error: Backup needed.
+-104010\tERR_NEED_ALL_PAIDOUT\tERR_NEED_ALL_PAIDOUT
+-104011\tERR_NEED_OPERATOR_Z_REPORT\tClearing report for operator is needed.
+-104012\tERR_NEED_GROUP_Z_REPORT\tClearing report for item group is needed.
+-104013\tERR_NEED_VAT_CHANGES\tVAT changes is needed.
+-105000\tERR_EJ_NO_RECORDS\tEJ error: No records in EJ
+-105001\tERR_CANNOT_ADD_TO_EJ\tEJ error: Cannot add to EJ
+-105002\tERR_EJ_WRONG_MAC_RECORD\tEJ error: SAM module signature error
+-105003\tERR_EJ_IMMPOSSIBLE_TO_CHK_MAC_RECORD\tEJ error: Signature key version is changed -> impossible check
+-105004\tERR_EJ_BAD_RECORDS\tEJ error: Bad record in EJ
+-105005\tERR_EJ_CAN_NOT_GENERATE_MAC\tEJ error: Generate signature error( cannoct generate signature )
+-105006\tERR_EJ_WRONG_TYPE_TO_SIGN\tEJ error: Wrong type of document to sign
+-105007\tERR_EJ_ALREADY_SIGNED\tEJ error: Document is already signed
+-105008\tERR_EJ_NOT_FROM_THIS_DEVICE\tEJ error: EJ is not from this device
+-105009\tERR_EJ_NEAR_FULL\tEJ error: EJ is almost full
+-105010\tERR_EJ_FULL\tEJ error: EJ is full
+-105011\tERR_EJ_WRONG_FORMAT\tEJ error: Wrong format of EJ
+-105012\tERR_EJ_NOT_READY\tThe electronic journal is not ready.
+-105013\tERR_EJ_NEED_NEW\tError in EJ structure. Create new one.
+-106000\tERR_R_FIRM_NOTEXIST\tClient database error: Firm does not exist
+-106001\tERR_FIRMDB_FIRMCODE_EXISTS\tClient database error: Firmcode already exists
+-106002\tERR_FIRMDB_EIK_EXISTS\tClient database error: EIK already exists
+-106003\tERR_FIRMDB_FULL\tClient database error: Firm database is full
+-106004\tERR_FIRMDB_NOT_FOUND\tClient database error: Firm database is not found
+-107001\tERR_INVALID_CERTIFICATE\tInvalid certificate.
+-107002\tERR_VALID_CERT_EXISTS\tCertificate exist.
+-107003\tERR_CERT_UNPACKING_FAILED\tCertificate unpack failed.
+-107004\tERR_CERT_WRONG_PASSWORD\tWrong certificate password.
+-107005\tERR_CERT_FILE_WRITE\tFile write error.
+-107006\tERR_CERT_FILE_READ\tFile read error.
+-107007\tERR_CERT_NOT_FOUND\tCertificate not found.
+-108000\tERR_R_DISC_NOTEXIST\tDiscount card database error: Discount card does not exist
+-108001\tERR_DISCDB_DISCCODE_EXISTS\tDiscount card database error: Discount card already exists
+-108002\tERR_DISCDB_BARCODE_EXISTS\tDiscount card database error: Barcode already exists
+-108003\tERR_DISCDB_FULL\tDiscount card database error: Discount card database is full
+-108004\tERR_DISCDB_NOT_FOUND\tDiscount card database error: Discount card not found
+-109981\tERR_SMARTCARD_NOT_PRESENT\tSmartcard error: No card in the holder.
+-109982\tERR_SMARTCARD_CONFIG\tSmartcard error: Configuration failed
+-109983\tERR_SMARTCARD_COMMUNICATION\tSmartcard error: SmartCard communication error.
+-109984\tERR_SMARTCARD_CARD_FAULT\tSmartcard error: Supply voltage drop a VCC over-current detection or overheating.
+-109985\tERR_SMARTCARD_MODULE_ERROR\tSmartcard error: Unexpected response from the applet.
+-109986\tERR_SMARTCARD_WRONG_ID\tThe ID of the smart card does not match the ID stored in the fiscal memory.
+-110100\tERR_DEVICE_COMM_ERROR\tDevice error: Communication error
+-110101\tERR_DEVICE_WRONG_STRUCT\tDevice error: Wrong struct format
+-110102\tERR_DEVICE_STFLAG_ACTIVE\tDevice error: ST flag is active
+-110103\tERR_DEVICE_INVALID_DATA\tDevice error: Invalid data
+-110104\tERR_DEVICE_NOT_FISCALIZED\tDevice error: Device is not fiscalized
+-110105\tERR_DEVICE_ALREADY_FISCALIZED\tDevice error: Device is already fiscalized
+-110106\tERR_DEVICE_IN_SERVICE_MODE\tDevice error: Device is in service mode
+-110107\tERR_DEVICE_PASSED_SERVICE_DATE\tDevice error: Service date is passed
+-110108\tERR_DEVICE_DAY_IS_OPEN\tDevice error: Day( shift ) is open
+-110109\tERR_DEVICE_DAY_IS_CLOSED\tDevice error: Day( shift ) is closed
+-110110\tERR_DEVICE_WRONG_NUMBERS\tDevice error: Z-report number and shift number are not equal
+-110111\tERR_DEVICE_ADMIN_ONLY\tDevice error: Only admin has permition
+-110112\tERR_DEVICE_UNFISCALIZED\tDevice error: Fiscal memory is closed
+-110200\tERR_NAP_OPEN_SESSION\tNAP server error: Error open session
+-110201\tERR_NAP_PREPARE_DATA\tNAP server error: Error preparing data for server
+-110202\tERR_NAP_SEND_DATA\tNAP server error: There is unsent data
+-110203\tERR_NAP_RECV_DATA\tNAP server error: Receiving data error
+-110204\tERR_NAP_EMPTY_DATA\tNAP server error: Empty data
+-110205\tERR_NAP_NEGATIVE_ANSWER\tNAP server error: Server negative answer
+-110206\tERR_NAP_WRONG_ANSWER_FORMAT\tNAP server error: Wrong answer format
+-110207\tERR_NAP_HOSTDI_ZERRO\tNAP server error: Server HOSTDI is zerro
+-110208\tERR_NAP_EXCEPTION\tNAP server error: Server exception
+-110209\tERR_NAP_NOTPERSONALIZED\tNAP server error: Not registered on server
+-110209\tERR_NAP_NOTREGISTERED\tNAP server error: Not registered on server
+-110210\tERR_NAP_BLOCKED_72H\tNAP server error: Communication with NAP server is blocked
+-110211\tERR_NAP_BLOCKED_NO_MODEM_LAN\tNAP server error: Modem error
+-110212\tERR_NAP_BUSY\tNAP server error: NAP is busy
+-110213\tERR_NAP_REGISTERED\tNAP server error: Already registered
+-110214\tERR_NAP_WRONG_PSTYPE\tNAP server error: Wrong PS type
+-110215\tERR_NAP_DEREG_ON_SERVER\tNAP server error: Deregistered in NAP
+-110216\tERR_NAP_WRONG_IMSI\tNAP server error: Wrong IMSI number
+-110217\tERR_NAP_BLOCKED_MAX_ZERRORS\tNAP server error: Device is blocked( maximum Z-reports )
+-110218\tERR_NAP_WRONG_FDTYPE\tNAP server error: Wrong FD( Fiscal device ) type
+-110219\tERR_NAP_BLOCKED_BY_SERVER\tNAP server error: The ECR is blocked by server
+-110220\tERR_NAP_BLOCKED_ERROR_FROM_SERVER\tNAP server error: The ECR is blocked - server error
+-110221\tERR_NAP_NO_SERVER_ADDRESS\tNAP server error: No server address
+-110222\tERR_NAP_NO_REGISTRATIONS_POSSIBLE\tNAP server error: Max. registrations reached.
+-110223\tERR_NAP_INVALID_OPERATOR_INN\tInvalid INN of the cashier
+-110224\tERR_NAP_INVALID_SERVER_INN\tInvalid INN of the server
+-110225\tERR_NAP_BLOCKED_MAX_SELLERRORS\tNAP server error: Device is blocked( unsent sales documents )
+-110226\tERR_NAP_BLOCKED_24H\tNAP server error: Communication with NAP server is blocked. More than 24 hours from last sent receipt.
+-110300\tERR_WORK_INVALID_FILE\tWorking error: Invalid file
+-110301\tERR_WORK_INVALID_PARAM\tWorking error: Invalid parameters
+-110500\tERR_MODEM_CTRL\tModem error: error in communication between device and modem
+-110501\tERR_MODEM_NO_SIM\tModem error: No SIM card
+-110502\tERR_MODEM_PIN\tModem error: Wrong PIN of SIM
+-110503\tERR_MODEM_ATTACH\tModem error: Cannot register to mobile network
+-110504\tERR_MODEM_PPP\tModem error: No PPP connection( cannot connect )
+-110505\tERR_MODEM_CONFIG\tModem error: Wrong modem configuration( for example - no programmed apn )
+-110506\tERR_MODEM_WAIT_INIT\tModem error: Modem initializing
+-110507\tERR_MODEM_NOTREADY\tModem error: Modem is not ready
+-110508\tERR_MODEM_REMOVE_SIM\tModem error: Remove SIM card
+-110509\tERR_MODEM_CELL_FOUND\tModem error: Modem found a cell
+-110510\tERR_MODEM_CELL_NOTFOUND\tModem error: Modem does not find a cell
+-110511\tERR_MODEM_LOT_DAYS_FAIL\tModem error: Failed lot days
+-110601\tERR_MODEM_CONNECT_AP\tModem error: Device is not connected to AP( access point )
+-110700\tERR_NET_DNS_RESOLVE\tNetwork error: Cannot resolve address
+-110701\tERR_NET_SOCKET\tNetwork error: Cannot open socket for communication with server
+-110702\tERR_NET_CONNECTION\tNetwork error: Connection error( cannot connect to a server )
+-110703\tERR_NET_CONFIG\tNetwork error: Config error( for example: no server address )
+-110704\tERR_NET_SOCKET_CONNECTED\tNetwork error: Connection socket is already opened
+-110705\tERR_NET_SSL_ERROR\tNetwork error: SSL communication error( something went wrong in cryptographic protocol )
+-110706\tERR_NET_HTTP_ERROR\tNetwork error: HTTP communication error( something went wrong in http protocol )
+-110800\tERR_DT_OK\tTax terminal error: No error
+-110801\tERR_DT_UNKNOWN_ID\tTax terminal error: Unknown ID
+-110802\tERR_DT_INVALID_TOKEN\tTax terminal error: Invalid token( key from the server )
+-110803\tERR_DT_PROTOCOL_ERROR\tTax terminal error: Protocol error
+-110804\tERR_DT_UNKNOWN_COMMAND\tTax terminal error: The command is unknown
+-110805\tERR_DT_UNSUPPORTED_COMMAND\tTax terminal error: The command is not supported
+-110806\tERR_DT_INVALID_CONFIGURATION\tTax terminal error: Invalid configuration
+-110807\tERR_DT_SSL_IS_NOT_ALLOWED\tTax terminal error: SSL is not allowed
+-110808\tERR_DT_INVALID_REQUEST_NUMBER\tTax terminal error: Invalid request number
+-110809\tERR_DT_INVALID_RETRY_REQUEST\tTax terminal error: Invalid retry request
+-110810\tERR_DT_CANT_CANCEL_TICKET\tTax terminal error: Cannot cancel ticket
+-110811\tERR_DT_OPEN_SHIFT_TIMEOUT_EXPIRED\tTax terminal error: More than 24 hours from shift opening
+-110812\tERR_DT_INVALID_LOGIN_PASSWORD\tTax terminal error: Invalid login name or password
+-110813\tERR_DT_INCORRECT_REQUEST_DATA\tTax terminal error: Incorrect request data
+-110814\tERR_DT_NOT_ENOUGH_CASH\tTax terminal error: Not enough cash
+-110815\tERR_DT_BLOCKED\tTax terminal error: Blocked from server
+-110854\tERR_DT_SERVICE_TEMPORARILY_UNAVAILABLE\tTax terminal error: Service temporarily unavailable
+-110855\tERR_DT_UNKNOWN_ERROR\tTax terminal error: Unknown error
+-111000\tERR_R_CLEAR\tRegistration mode error: Common error followed by deliting all data for the command
+-111001\tERR_R_NOCLEAR\tRegistration mode error: Common error followed by partly deliting data for the command
+-111002\tERR_R_SYNTAX\tRegistration mode error: Syntax error. Check the parameters of the command
+-111003\tERR_R_NPOSSIBLE\tRegistration mode error: Cannot do operation
+-111004\tERR_R_PLU_NOTEXIST\tRegistration mode error: PLU code was not found
+-111005\tERR_R_PLU_VAT_DISABLE\tRegistration mode error: Forbidden VAT
+-111006\tERR_R_PLU_QTY_PRC\tRegistration mode error: Overflow in multiplication of quantity and price
+-111007\tERR_R_PLU_NO_PRC\tRegistration mode error: PLU has no price
+-111008\tERR_R_PLU_GRP_RANGE\tRegistration mode error: Group is not in range
+-111009\tERR_R_PLU_DEP_RANGE\tRegistration mode error: Department is not in range
+-111010\tERR_R_BAR_NOTEXIST\tRegistration mode error: BAR code does not exist
+-111011\tERR_R_OVF_TOTAL\tRegistration mode error: Overflow of the PLU turnover
+-111012\tERR_R_OVF_QTY\tRegistration mode error: Overflow of the PLU quantity
+-111013\tERR_R_ECR_OVR\tRegistration mode error: ECR daily registers overflow
+-111014\tERR_R_BILL_TL_OVR\tRegistration mode error: Bill total register overflow
+-111015\tERR_R_OPEN_BON\tRegistration mode error: Receipt is opened
+-111016\tERR_R_CLOSED_BON\tRegistration mode error: Receipt is closed
+-111017\tERR_R_PAY_NOCASH\tRegistration mode error: No cash in ECR
+-111018\tERR_R_PAY_STARTED\tRegistration mode error: Payment is initiated
+-111019\tERR_R_OVF_TRZ_BUFF\tRegistration mode error: Maximum number of sales in receipt
+-111020\tERR_R_NO_TRANSACTIONS\tRegistration mode error: No transactions
+-111021\tERR_R_NEGATIVE_SUMVAT\tRegistration mode error: Possible negative turnover
+-111022\tERR_R_PYFOREIGN_HAVERESTO\tRegistration mode error: Foreign payment has change
+-111023\tERR_R_TRZ_NOT_EXIST\tRegistration mode error: Transaction is not found in the receipt
+-111024\tERR_R_END_OF_24_HOUR_PERIOD\tRegistration mode error: End of 24 hour blocking
+-111025\tERR_R_NO_VALID_INVOICE\tRegistration mode error: Invalid invoice range
+-111026\tERR_R_POS_TERM_CANCELED\tRegistration mode error: Operation is cancelled by operator
+-111027\tERR_R_POS_TERM_APPROVED\tRegistration mode error: Operation approved by POS
+-111028\tERR_R_POS_TERM_NOT_APPROVED\tRegistration mode error: Operation is not approved by POS
+-111029\tERR_R_POS_TERM_CONN_ERR\tRegistration mode error: POS terminal communication error
+-111030\tERR_R_PLU_QTY_PRC_TOO_LOW\tRegistration mode error: Multiplication of quantity and price is 0
+-111031\tERR_R_VALUE_TOO_BIG\tRegistration mode error: Value is too big
+-111032\tERR_R_VALUE_BAD\tRegistration mode error: Value is bad
+-111033\tERR_R_PRICE_TOO_BIG\tRegistration mode error: Price is too big
+-111034\tERR_R_PRICE_BAD\tRegistration mode error: Price is bad
+-111035\tERR_R_ALL_VOID_SELECTED\tRegistration mode error: Operation all void is selected to be executed
+-111036\tERR_R_ONLY_ALL_VOID_IS_POSSIBLE\tRegistration mode error: Only all void operation is permitted
+-111040\tERR_R_REST_NOFREESPC_SELLS\tRegistration mode error: Restaurant: There is no free space for other purchases
+-111041\tERR_R_REST_NOFREESPCFORNEWACNT\tRegistration mode error: Restaurant: There is no free space for new acount
+-111042\tERR_R_REST_ACCOUNT_IS_OPENED\tRegistration mode error: Restaurant: Account is already opened
+-111043\tERR_R_REST_WRONG_INDEX\tRegistration mode error: Restaurant: Wrong index
+-111044\tERR_R_REST_ACNT_IS_NOTFOUND\tRegistration mode error: Restaurant: Account is not found
+-111045\tERR_R_REST_NOT_PERMITTED\tRegistration mode error: Restaurant: Not permitted( only for admins )
+-111046\tERR_R_OPEN_NONFISCALBON\tRegistration mode error: non-fiscal receipt is opened
+-111047\tERR_R_OPEN_FISCALBON\tRegistration mode error: fiscal receipt is opened
+-111048\tERR_R_BUYERS_TIN_IS_ENTERED\tRegistration mode error: Buyers TIN is already entered
+-111049\tERR_R_BUYERS_TIN_IS_NOT_ENTERED\tRegistration mode error: Buyers TIN is not entered
+-111050\tERR_R_PAY_NOT_STARTED\tRegistration mode error: Payment is not initiated
+-111051\tERR_R_BON_TYPE_MISMATCH\tRegistration mode error: Reeipt type mismatch
+-111052\tERR_R_REACH_BON_TL_LIMIT\tRegistration mode error: Receipt total limit is reached
+-111053\tERR_R_CASH_NO_MULT_MIN_COIN\tRegistration mode error: Sum cannot be divided by the minimum coin
+-111054\tERR_R_PAY_BIG_AMOUNT\tRegistration mode error: Sum must be <= payment amount
+-111055\tERR_R_PAY_VOUCHER_NEED_INPUT_SUM\tRegistration mode error: Sum of voucher must be entered when paying with voucher
+-111056\tERR_R_PAY_VOUCHER_NEED_SURCHARGE\tRegistration mode error: Value surcharge of the difference between voucher sum and total must be done when paying with voucher and sum > total
+-111057\tERR_R_PAY_FOREIGN_DISABLED\tRegistration mode error: Payment with foreign currency is disabled
+-111058\tERR_R_PAY_FOREIGN_IMPOSSIBLE\tRegistration mode error: Payment with foreign currency is impossible
+-111059\tERR_R_PAY_FOREIGN_SMALL_AMOUNT\tRegistration mode error: Sum must be bigger or equal to payment amount
+-111060\tERR_R_SAFE_OPEN_DISABLED\tRegistration mode error: Safe opening is disabled
+-111061\tERR_R_PAY_FORBIDDEN\tRegistration mode error: Forbidden payment
+-111062\tERR_R_PERC_KEY_FORBIDDEN\tRegistration mode error: Forbidden key for surcharge/ discount
+-111063\tERR_R_AMOUNT_BIGGER_BILLAMOUNT\tRegistration mode error: Entered sum is bigger than receipt sum
+-111064\tERR_R_AMOUNT_SMALLER_BILLAMOUNT\tRegistration mode error: Entered sum is smaller than receipt sum
+-111065\tERR_R_ZERO_BILLAMOUNT\tRegistration mode error: Fiscal printer: Sum of receipt is 0. Operation 'void' is needed
+-111066\tERR_R_ALL_VOID_EXECUTED\tRegistration mode error: Fiscal printer: Operation 'void' is executed. Close receipt is needed
+-111067\tERR_R_OPEN_STORNOBON\tRegistration mode error: Storno receipt is opened
+-111068\tERR_R_PAY_ZERO_AMOUNT\tRegistration mode error: Sum is not entered
+-111069\tERR_R_PLU_PRICETYPE_RANGE\tRegistration mode error: Price type is invalid
+-111070\tERR_R_PLU_PRICETYPE_LINKED\tRegistration mode error: Linked surcharge is forbidden
+-111071\tERR_R_PLU_PRICETYPE_NEGATIVE\tRegistration mode error: Negative price is forbidden
+-111072\tERR_R_MORE_THAN_ONE_VAT\tRegistration mode error: More than 1 VAT in one receipt is not allowed
+-111073\tERR_R_PINPAD\tRegistration mode error: Pinpad error
+-111074\tERR_R_WRONG_BUYERS_DATA\tRegistration mode error: Buyer data is wrong
+-111075\tERR_R_VAT_SYSTEM_DISABLE\tRegistration mode error: Vat system disable.
+-111076\tERR_R_OPER_NOT_LOGGED_IN\tOperator not logged in.
+-111077\tERR_R_WRONG_DATE_FM\tThe receipt date is early on last date in fiscal memory.
+-111078\tERR_R_CORR_DATA_NOT_ENTERED\tCorrection receipt data is not entered!
+-111079\tERR_R_FRACTIONAL_QTY\tFractional quantity!
+-111080\tERR_R_OUT_OF_STOCK\tRegistration mode error: Registration mode error: Out of stock
+-111081\tERR_R_STL_NEEDED\tRegistration mode error: Must pushing of the STL before TL.
+-111082\tERR_R_PACK_NOTEXIST\tPackage does not exist
+-111083\tERR_R_PLU_UNIT_NOTEXIST\tMeasuring unit not found
+-111084\tERR_R_PLU_CATEGORY_NOTEXIST\tCategory not found in the data base
+-111085\tERR_R_DEP_WRONG_NAME\tInvalid department name
+-111086\tERR_R_BANK_TERM_NOT_CONFIGURED\tBank terminal not configured
+-111087\tERR_R_SIGN_PAY_INCORECT\tDisallowed '??????? ???????' (Russia)
+-111088\tERR_R_SIGN_INCORRECT\tForbidden ??????? ??????
+-111089\tERR_R_PLU_OVER_MAX_PRC\tEntered price is bigger than the programmed
+-111090\tERR_R_PLU_FIX_PRC\tFix PLU's price
+-111091\tERR_R_SIGN_AGENT_INCORECT\tIncorect sign agent.
+-111092\tERR_R_PAY_VOUCHER_RESTO\tVoucher payment cannot have change
+-111093\tERR_R_PAY_ADVANCE_BIG\tSum for advance payment is bigger than the sum of article
+-111094\tERR_R_PAY_STORNO_RESTO\tPayment in storno can not have change
+-111095\tERR_R_NOT_EXCISE_PLU_WITH_EXCISE_STAMP\tInvalid parameter - PLU is not defined as excise PLU
+-111096\tERR_R_EXCISE_PLU_WITHOUT_EXCISE_STAMP\tExcise stamp of an excise PLU is not entered
+-111097\tERR_R_EXCISE_PLU_FORBIDDEN\tSALE FORBIDDEN (excise stamp is not valid)
+-111500\tERR_PINPAD_NONE\tPinpad error: No error from pinpad
+-111501\tERR_PINPAD_GENERAL\tPinpad error: General unicreditbulbank icon error
+-111502\tERR_PINPAD_INVALID_COMMAND\tPinpad error: Not valid command or sub command code
+-111503\tERR_PINPAD_INVALID_PARAM\tPinpad error: Invalid parameter
+-111504\tERR_PINPAD_INVALID_ADDRESS\tPinpad error: The address is outside limits
+-111505\tERR_PINPAD_INVALID_VALUE\tPinpad error: The value is outside limits
+-111506\tERR_PINPAD_INVALID_LENGTH\tPinpad error: The length is outside limits
+-111507\tERR_PINPAD_NOT_PERMIT\tPinpad error: The action is not permited in currentstate
+-111508\tERR_PINPAD_NO_DATA\tPinpad error: There is no data to be returned
+-111509\tERR_PINPAD_TIMEOUT\tPinpad error: Timeout occurs
+-111510\tERR_PINPAD_INVALID_KEY_NUMBER\tPinpad error: Invalid key number
+-111511\tERR_PINPAD_INVALID_KEY_ATTRIBUTES\tPinpad error: Invalid key attributes(usage)
+-111512\tERR_PINPAD_INVALID_DEVICE\tPinpad error: Calling of non-existing device
+-111513\tERR_PINPAD_NOT_SUPPORT\tPinpad error: (Not used in this FW version)
+-111514\tERR_PINPAD_PIN_LIMIT\tPinpad error: Pin entering limit exceed
+-111515\tERR_PINPAD_FLASH\tPinpad error: General error in flash commands
+-111516\tERR_PINPAD_HARDWARE\tPinpad error: General hardware unicreditbulbank error
+-111517\tERR_PINPAD_INVALID_CRC\tPinpad error: Invalid code check (Not used in this FW version)
+-111518\tERR_PINPAD_CANCEL\tPinpad error: The button 'CANCEL' is pressed
+-111519\tERR_PINPAD_INVALID_SIGNATURE\tPinpad error: Invalid signature
+-111520\tERR_PINPAD_INVALID_HEADER\tPinpad error: Invalid data in header
+-111521\tERR_PINPAD_INVALID_PASSWORD\tPinpad error: Incorrect password
+-111522\tERR_PINPAD_INVALID_KEY_FORMAT\tPinpad error: Invalid key format
+-111523\tERR_PINPAD_SCR\tPinpad error: General unicreditbulbank error in smart card reader
+-111524\tERR_PINPAD_HAL\tPinpad error: Error code returned from HAL functions
+-111525\tERR_PINPAD_INVALID_KEY\tPinpad error: Invalid key (may not be present)
+-111526\tERR_PINPAD_NO_PIN_DATA\tPinpad error: The PIN length is less than 4 or bigger than 12
+-111527\tERR_PINPAD_INVALID_REMINDER\tPinpad error: Issuer or ICC key invalid remainder length
+-111528\tERR_PINPAD_NOT_INIT\tPinpad error: Not initialized (Not used in this FW version)
+-111529\tERR_PINPAD_LIMIT\tPinpad error: Limit is reached (Not used in this FW version)
+-111530\tERR_PINPAD_INVALID_SEQUENCE\tPinpad error: Invalid sequence (Not used in this FW version)
+-111531\tERR_PINPAD_NO_PERMITION\tPinpad error: The action is not permitted
+-111532\tERR_PINPAD_NO_TMK\tPinpad error: TMK is not loaded. The action cannot be executed
+-111533\tERR_PINPAD_INVALID_KEK\tPinpad error: Wrong key format
+-111534\tERR_PINPAD_DUPLICATE_KEY\tPinpad error: Duplicated key
+-111535\tERR_PINPAD_KEYBOARD\tPinpad error: General keyboard error
+-111536\tERR_PINPAD_KEYBOARD_NOT_CALIBRATED\tPinpad error: The keyboard is no calibrated.
+-111537\tERR_PINPAD_KEYBOARD_FAILED\tPinpad error: Keyboard bug detected.
+-111538\tERR_PINPAD_DEVICE_BUSY\tPinpad error: The device is busy try again
+-111539\tERR_PINPAD_TAMPERED\tPinpad error: Device is tampered
+-111540\tERR_PINPAD_EMSR\tPinpad error: Error in encrypted head
+-111541\tERR_PINPAD_ACCEPT\tPinpad error: The button 'OK' is pressed
+-111542\tERR_PINPAD_INVALID_PAN\tPinpad error: Wrong PAN
+-111543\tERR_PINPAD_NOT_ENOUGH_MEMORY\tPinpad error: Out of memory
+-111544\tERR_PINPAD_EMV\tPinpad error: EMV error
+-111545\tERR_PINPAD_CRYPTOGRAPHY\tPinpad error: Cryptographic error
+-111546\tERR_PINPAD_COMMUNICATION\tPinpad error: Communication error
+-111547\tERR_PINPAD_INVALID_VERSION\tPinpad error: Invalid firmware version
+-111548\tERR_PINPAD_NOPAPER\tPinpad error: Printer is out of paper
+-111549\tERR_PINPAD_OVERHEATED\tPinpad error: Printer is overheated
+-111550\tERR_PINPAD_NOT_CONNECTED\tPinpad error: Device is not connected
+-111551\tERR_PINPAD_USE_CHIP\tPinpad error: Use the chip reader
+-111552\tERR_PINPAD_END_DAY\tPinpad error: End the day first
+-111554\tERR_PINPAD_BOR_ERR\tPinpad error: Error from Borica
+-111555\tERR_PINPAD_NO_CONN\tPinpad error: No connection with pinpad
+-111556\tERR_PINPAD_ECR\tPinpad error: Success in pinpad unsuccess in ECR
+-111557\tERR_PINPAD_NOT_CONF\tPinpad error: Not configured connection between fiscal device and PinPad
+-111558\tERR_PINPAD_SAME_TRANS\tPinpad error: The last transactions are equals or connection is interrupted - try again.
+-111559\tERR_PINPAD_RECEIPT\tPinpad error: Payment type: debit/credit card via PinPad. In the fiscal receipt is allowed only one payment with such type.
+-111560\tERR_PINPAD_FP_TRANS\tPinpad error: Unknown result of the transaction between fiscal device and PinPad
+-111561\tERR_PINPAD_NOT_CONF_TYPE\tPinpad error: Pinpad type not configured
+-111700\tERR_PINPAD_INV_AMOUNT\tPinpad error: Invalid ammount.
+-111701\tERR_PINPAD_TRN_NOT_FOUND\tPinpad error: Transaction not found.
+-111702\tERR_PINPAD_FILE_EMPTY\tPinpad error: The file is empty.
+-111703\tERR_PINPAD_MAX_CASHBACK\tEntered cashback is bigger than cashback limit.
+-111800\tERR_SCALE_NOT_RESPOND\tERR_SCALE_NOT_RESPOND
+-111801\tERR_SCALE_NOT_CALCULATED\tERR_SCALE_NOT_CALCULATED
+-111802\tERR_SCALE_WRONG_RESPONSE\tERR_SCALE_WRONG_RESPONSE
+-111803\tERR_SCALE_ZERO_WEIGHT\tERR_SCALE_ZERO_WEIGHT
+-111804\tERR_SCALE_NEGATIVE_WEIGHT\tERR_SCALE_NEGATIVE_WEIGHT
+-111805\tERR_SCALE_T_WRONG_INTF\tERR_SCALE_T_WRONG_INTF
+-111806\tERR_SCALE_T_CONNECT\tERR_SCALE_T_CONNECT
+-111807\tERR_SCALE_SEND\tERR_SCALE_SEND
+-111808\tERR_SCALE_RECEIVE\tERR_SCALE_RECEIVE
+-111809\tERR_SCALE_FILE_GENERATE\tERR_SCALE_FILE_GENERATE
+-111810\tERR_SCALE_NOT_CONFIG\tERR_SCALE_NOT_CONFIG
+-111900\tERR_NTP_NO_COMM\tCommunication error wtih NTP server: Cannot make communication
+-111901\tERR_NTP_EARLIER_DATETIME\tCommunication error wtih NTP server: The date and time is earlier than the last saved in the fiscal memory
+-111902\tERR_NTP_WRONG_IP\tCommunication error wtih NTP server: Wrong IP address
+-112000\tERR_FP_INVALID_COMMAND\tFiscal printer error: Fiscal printer invalid command
+-112001\tERR_FP_INVALID_SYNTAX\tFiscal printer error: Fiscal printer command invalid syntax
+-112002\tERR_FP_COMMAND_NOT_PERMITTED\tFiscal printer error: Command is not permitted
+-112003\tERR_FP_OVERFLOW\tFiscal printer error: Register overflow
+-112004\tERR_FP_WRONG_DATE_TIME\tFiscal printer error: Wrong date/time
+-112005\tERR_FP_NEEDED_MODE_PC\tFiscal printer error: PC mode is needed
+-112006\tERR_FP_NO_PAPER\tFiscal printer error: No paper
+-112007\tERR_FP_COVER_IS_OPEN\tFiscal printer error: Cover is open
+-112008\tERR_FP_PRINTER_FAILURE\tFiscal printer error: Printing mechanism error
+-112100\t_ERR_FP_SYNTAX_PARAM_BEGIN\t_ERR_FP_SYNTAX_PARAM_BEGIN
+-112101\tERR_FP_SYNTAX_PARAM_1\tInvalid syntax of parameter 1.
+-112102\tERR_FP_SYNTAX_PARAM_2\tInvalid syntax of parameter 2.
+-112103\tERR_FP_SYNTAX_PARAM_3\tInvalid syntax of parameter 3.
+-112104\tERR_FP_SYNTAX_PARAM_4\tInvalid syntax of parameter 4.
+-112105\tERR_FP_SYNTAX_PARAM_5\tInvalid syntax of parameter 5.
+-112106\tERR_FP_SYNTAX_PARAM_6\tInvalid syntax of parameter 6.
+-112107\tERR_FP_SYNTAX_PARAM_7\tInvalid syntax of parameter 7.
+-112108\tERR_FP_SYNTAX_PARAM_8\tInvalid syntax of parameter 8.
+-112109\tERR_FP_SYNTAX_PARAM_9\tInvalid syntax of parameter 9.
+-112110\tERR_FP_SYNTAX_PARAM_10\tInvalid syntax of parameter 10.
+-112111\tERR_FP_SYNTAX_PARAM_11\tInvalid syntax of parameter 11.
+-112112\tERR_FP_SYNTAX_PARAM_12\tInvalid syntax of parameter 12.
+-112113\tERR_FP_SYNTAX_PARAM_13\tInvalid syntax of parameter 13.
+-112114\tERR_FP_SYNTAX_PARAM_14\tInvalid syntax of parameter 14.
+-112115\tERR_FP_SYNTAX_PARAM_15\tInvalid syntax of parameter 15.
+-112116\tERR_FP_SYNTAX_PARAM_16\tInvalid syntax of parameter 16.
+-112199\t_ERR_FP_SYNTAX_PARAM_END\t_ERR_FP_SYNTAX_PARAM_END
+-112200\t_ERR_FP_BAD_PARAM_BEGIN\t_ERR_FP_BAD_PARAM_BEGIN
+-112201\tERR_FP_BAD_PARAM_1\tBad value of parameter 1.
+-112202\tERR_FP_BAD_PARAM_2\tBad value of parameter 2.
+-112203\tERR_FP_BAD_PARAM_3\tBad value of parameter 3.
+-112204\tERR_FP_BAD_PARAM_4\tBad value of parameter 4.
+-112205\tERR_FP_BAD_PARAM_5\tBad value of parameter 5.
+-112206\tERR_FP_BAD_PARAM_6\tBad value of parameter 6.
+-112207\tERR_FP_BAD_PARAM_7\tBad value of parameter 7.
+-112208\tERR_FP_BAD_PARAM_8\tBad value of parameter 8.
+-112209\tERR_FP_BAD_PARAM_9\tBad value of parameter 9.
+-112210\tERR_FP_BAD_PARAM_10\tBad value of parameter 10.
+-112211\tERR_FP_BAD_PARAM_11\tBad value of parameter 11.
+-112212\tERR_FP_BAD_PARAM_12\tBad value of parameter 12.
+-112213\tERR_FP_BAD_PARAM_13\tBad value of parameter 13.
+-112214\tERR_FP_BAD_PARAM_14\tBad value of parameter 14.
+-112215\tERR_FP_BAD_PARAM_15\tBad value of parameter 15.
+-112216\tERR_FP_BAD_PARAM_16\tBad value of parameter 16.
+-112299\t_ERR_FP_BAD_PARAM_END\t_ERR_FP_BAD_PARAM_END
+-112900\t_ERR_RANGE_EM_BEGIN\t_ERR_RANGE_EM_BEGIN
+-112999\t_ERR_RANGE_EM_END\t_ERR_RANGE_EM_END
+-113000\tERR_FLASH_WRONG_ID\tFlash memory error: Reading ID error
+-113001\tERR_FLASH_WRONG_SIZE\tFlash memory error: Sector size error
+-114000\tERR_POS_TERM_CHAN_CLOSED\tPOS- terminal error: Communication channel is closed
+-118000\tERR_ECRSRV_NO_SOCKET_OPENED\tECR server error: The connection socket is not open
+-118001\tERR_ECRSRV_SET_IS_NOT_TAKEN\tECR server error: The set for this command is not opened
+-118002\tERR_ECRSRV_WRONG_PARAM\tECR server error: Wrong parameter
+-118003\tERR_ECRSRV_NOT_SEND\tECR server error: Socket send error. Could not send data to server
+-118004\tERR_ECRSRV_RECV_TMOUT\tECR server error: Receiving timeout. No data is receivec on time
+-118005\tERR_ECRSRV_SOCKET_CLOSED\tECR server error: Socket is closed
+-118006\tERR_ECRSRV_UNKNOWN\tECR server error: Unknown state
+-118007\tERR_ECRSRV_FORBIDEN\tECR server error: Forbidden operation
+-120000\tERR_PGM_NAME_NOT_UNIQUE\tProgramming: Name is not unique!
+-120001\tERR_PGM_OPER_PASS_NOT_UNIQUE\tProgramming: Operator password is not unique!
+-120002\tERR_PGM_DATETIME_OUT_OF_RANGE_MIN\tProgramming: Date and time is under the range.
+-120003\tERR_PGM_DATETIME_OUT_OF_RANGE_MAX\tProgramming: Date and time is under the range.
+-121000\tERR_SCANNER_GENERAL\tBarcode scanner reading error!
+-121001\tERR_COURIER_EIK_INVALID\tInvalid EIK/EGN number!
+-170000\tERR_USB_HOST_INIT\tUSB error: Host init error
+-170001\tERR_USB_NO_DEVICE\tUSB error: No device
+-170002\tERR_USB_NO_FILESYSTEM\tUSB error: No filesystem
+-170003\tERR_USB_FILE_OPEN\tUSB error: File open error
+-170004\tERR_USB_FILE_COPY\tUSB error: File copy error
+-170005\tERR_FILE_UNPACK\tUSB error: File unpack error
+-171000\tERR_RENTAL_NOT_FOUND\tRental database: Not found
+-171001\tERR_RENTAL_FULL\tRental database: Full
+-171002\tERR_RENTAL_POSITION_OCCUPIED\tRental database: Position is occupied
+-171003\tERR_RENTAL_POSITION_FREE\tRental database: Position is free
+-171004\tERR_RENTAL_SUBSCRIPTION_ACTIVE\tRental database: Subscription is active
