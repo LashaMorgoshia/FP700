@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FP700", "FP700\FP700.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FP700Win", "FP700Win\FP700Win.csproj", "{0D7763C8-BB11-4897-9F5A-506ECE260E6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FP700KasaGe", "FP700KasaGe\FP700KasaGe.csproj", "{4B06AFC7-6D02-413A-AD26-9049D52412B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0D7763C8-BB11-4897-9F5A-506ECE260E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D7763C8-BB11-4897-9F5A-506ECE260E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D7763C8-BB11-4897-9F5A-506ECE260E6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B06AFC7-6D02-413A-AD26-9049D52412B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B06AFC7-6D02-413A-AD26-9049D52412B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B06AFC7-6D02-413A-AD26-9049D52412B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B06AFC7-6D02-413A-AD26-9049D52412B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
