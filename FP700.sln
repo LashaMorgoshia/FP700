@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FP700", "FP700\FP700.csproj", "{3CFC1BE1-DAB7-4FEA-9FAC-B5A5309D75AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FP700Win", "FP700Win\FP700Win.csproj", "{0D7763C8-BB11-4897-9F5A-506ECE260E6B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CFC1BE1-DAB7-4FEA-9FAC-B5A5309D75AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CFC1BE1-DAB7-4FEA-9FAC-B5A5309D75AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CFC1BE1-DAB7-4FEA-9FAC-B5A5309D75AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CFC1BE1-DAB7-4FEA-9FAC-B5A5309D75AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D7763C8-BB11-4897-9F5A-506ECE260E6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D7763C8-BB11-4897-9F5A-506ECE260E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D7763C8-BB11-4897-9F5A-506ECE260E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D7763C8-BB11-4897-9F5A-506ECE260E6B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8035E0C-C324-44EC-87CF-464FD2309C6E}
+	EndGlobalSection
+EndGlobal
