@@ -32,6 +32,8 @@
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnXReport = new System.Windows.Forms.Button();
+            this.btnZReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,12 +59,34 @@
             this.dataGridView1.Size = new System.Drawing.Size(558, 455);
             this.dataGridView1.TabIndex = 1;
             // 
+            // btnXReport
+            // 
+            this.btnXReport.Location = new System.Drawing.Point(659, 57);
+            this.btnXReport.Name = "btnXReport";
+            this.btnXReport.Size = new System.Drawing.Size(272, 43);
+            this.btnXReport.TabIndex = 0;
+            this.btnXReport.Text = "X რეპორტის ამოღება";
+            this.btnXReport.UseVisualStyleBackColor = true;
+            this.btnXReport.Click += new System.EventHandler(this.btnXReport_Click);
+            // 
+            // btnZReport
+            // 
+            this.btnZReport.Location = new System.Drawing.Point(659, 106);
+            this.btnZReport.Name = "btnZReport";
+            this.btnZReport.Size = new System.Drawing.Size(272, 43);
+            this.btnZReport.TabIndex = 0;
+            this.btnZReport.Text = "Z რეპორტის ამოღება";
+            this.btnZReport.UseVisualStyleBackColor = true;
+            this.btnZReport.Click += new System.EventHandler(this.btnZReport_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 700);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnZReport);
+            this.Controls.Add(this.btnXReport);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Fiscal Printer Tester";
@@ -77,6 +101,8 @@
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnXReport;
+        private System.Windows.Forms.Button btnZReport;
     }
 }
 
