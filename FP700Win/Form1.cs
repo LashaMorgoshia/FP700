@@ -2,6 +2,7 @@
 using FP700Win.Models;
 using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Windows.Forms;
 
 namespace FP700Win
@@ -16,7 +17,8 @@ namespace FP700Win
         {
             InitializeComponent();
 
-            _fp700 = new FP700("COM3");
+            var ports = SerialPort.GetPortNames();
+            _fp700 = new FP700(ports[ports.Length - 1]);
             _messenger = new MessageAggregator();
             _items = new List<ItemInfo>();
         }
