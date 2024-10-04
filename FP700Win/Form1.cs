@@ -47,7 +47,7 @@ namespace FP700Win
                     RegisterSaleResponse res = this._fp700.RegisterSale(item.Code, item.Price, item.Qty, 1, TaxCode.A);
                     this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(res));
                 }
-                CalculateTotalResponse response2 = this._fp700.Total(PaymentMode.Card);
+                CalculateTotalResponse response2 = this._fp700.Total(PaymentMode.Cash);
                 this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(response2));
                 CloseFiscalReceiptResponse response3 = this._fp700.CloseFiscalReceipt();
                 this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(response3));
