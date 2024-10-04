@@ -8,86 +8,241 @@ using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Text;
 
-namespace FP700Win.Fiscal
+namespace FiscalPrinter
 {
     #region Enums
-    public enum Cash
+    /// <summary>
+    /// Represents the type of cash operation.
+    /// </summary>
+    public enum CashOperation
     {
-        In,
-        Out
+        /// <summary>
+        /// Cash in operation.
+        /// </summary>
+        In = 0,
+
+        /// <summary>
+        /// Cash out operation.
+        /// </summary>
+        Out = 1
     }
 
+    /// <summary>
+    /// Represents the type of discount applied.
+    /// </summary>
     public enum DiscountType
     {
+        /// <summary>
+        /// Surcharge by percentage.
+        /// </summary>
         SurchargeByPercentage = 1,
-        DiscountByPercentage,
-        SurchargeBySum,
-        DiscountBySum
+
+        /// <summary>
+        /// Discount by percentage.
+        /// </summary>
+        DiscountByPercentage = 2,
+
+        /// <summary>
+        /// Surcharge by sum.
+        /// </summary>
+        SurchargeBySum = 3,
+
+        /// <summary>
+        /// Discount by sum.
+        /// </summary>
+        DiscountBySum = 4
     }
 
+    /// <summary>
+    /// Represents the type of fiscal entry information.
+    /// </summary>
     public enum FiscalEntryInfoType
     {
-        CashDebit,
-        CashCredit,
-        CashFreeDebit,
-        CashFreeCredit
+        /// <summary>
+        /// Cash debit.
+        /// </summary>
+        CashDebit = 0,
+
+        /// <summary>
+        /// Cash credit.
+        /// </summary>
+        CashCredit = 1,
+
+        /// <summary>
+        /// Cash free debit.
+        /// </summary>
+        CashFreeDebit = 2,
+
+        /// <summary>
+        /// Cash free credit.
+        /// </summary>
+        CashFreeCredit = 3
     }
 
+    /// <summary>
+    /// Represents the payment mode.
+    /// </summary>
     public enum PaymentMode
     {
-        Cash,
-        Card,
-        Credit,
-        Tare
+        /// <summary>
+        /// Cash payment.
+        /// </summary>
+        Cash = 0,
+
+        /// <summary>
+        /// Card payment.
+        /// </summary>
+        Card = 1,
+
+        /// <summary>
+        /// Credit payment.
+        /// </summary>
+        Credit = 2,
+
+        /// <summary>
+        /// Tare payment.
+        /// </summary>
+        Tare = 3
     }
 
+    /// <summary>
+    /// Represents the price type.
+    /// </summary>
     public enum PriceType
     {
-        FixedPrice,
-        FreePrice,
-        MaxPrice
+        /// <summary>
+        /// Fixed price.
+        /// </summary>
+        FixedPrice = 0,
+
+        /// <summary>
+        /// Free price.
+        /// </summary>
+        FreePrice = 1,
+
+        /// <summary>
+        /// Maximum price.
+        /// </summary>
+        MaxPrice = 2
     }
 
+    /// <summary>
+    /// Represents the type of receipt.
+    /// </summary>
     public enum ReceiptType
     {
-        Sale,
-        Return
+        /// <summary>
+        /// Sale receipt.
+        /// </summary>
+        Sale = 1,
+
+        /// <summary>
+        /// Return receipt.
+        /// </summary>
+        Return = 2
     }
 
+    /// <summary>
+    /// Represents the type of report.
+    /// </summary>
     public enum ReportType
     {
+        /// <summary>
+        /// X report.
+        /// </summary>
         X = 1,
-        Z
+
+        /// <summary>
+        /// Z report.
+        /// </summary>
+        Z = 2
     }
 
+    /// <summary>
+    /// Represents the tax code.
+    /// </summary>
     public enum TaxCode
     {
+        /// <summary>
+        /// Tax code A.
+        /// </summary>
         A = 1,
-        B,
-        C
+
+        /// <summary>
+        /// Tax code B.
+        /// </summary>
+        B = 2,
+
+        /// <summary>
+        /// Tax code C.
+        /// </summary>
+        C = 3
     }
 
-    public enum TaxGr
+    /// <summary>
+    /// Represents the tax group.
+    /// </summary>
+    public enum TaxGroup
     {
-        A,
-        B,
-        C
+        /// <summary>
+        /// Tax group A.
+        /// </summary>
+        A = 0,
+
+        /// <summary>
+        /// Tax group B.
+        /// </summary>
+        B = 1,
+
+        /// <summary>
+        /// Tax group C.
+        /// </summary>
+        C = 2
     }
     #endregion
 
     #region Commands
-    internal class AddTextToFiscalReceiptCommand : WrappedMessage
+    public abstract class FiscalCommand : IWrappedMessage
+    {
+        public abstract int Command { get; }
+        public string Data { get; protected set; }
+
+        protected FiscalCommand(string[] parameters)
+        {
+            Data = string.Join("\t", parameters);
+        }
+
+        public byte[] GetBytes(int sequence)
+        {
+            // Common logic for generating the byte array for commands
+            byte[] packet = new byte[256];
+            // Add logic to fill packet based on command and data
+            return packet;
+        }
+    }
+
+    internal class AddTextCommand : FiscalCommand
     {
         public override int Command { get; }
 
-        public override string Data { get; }
-
-        public AddTextToFiscalReceiptCommand(string text)
+        public AddTextCommand(string text, bool isFiscal) : base(new[] { text })
         {
-            Command = 54;
-            Data = text + "\t";
+            Command = isFiscal ? 54 : 42;
         }
     }
+
+    //internal class AddTextToFiscalReceiptCommand : WrappedMessage
+    //{
+    //    public override int Command { get; }
+
+    //    public override string Data { get; }
+
+    //    public AddTextToFiscalReceiptCommand(string text)
+    //    {
+    //        Command = 54;
+    //        Data = text + "\t";
+    //    }
+    //}
 
     internal class AddTextToNonFiscalReceiptCommand : WrappedMessage
     {
@@ -1244,6 +1399,7 @@ namespace FP700Win.Fiscal
         private bool _innerReadStatusExecuted;
 
         private readonly Queue<byte> _queue;
+        private readonly bool _isFiscal;
 
         /// <summary>
         /// constructor
@@ -1251,6 +1407,7 @@ namespace FP700Win.Fiscal
         /// <param name="portName"></param>
         public FP700(string portName)
         {
+            _isFiscal = false;
             _queue = new Queue<byte>();
             _port = new SerialPort(portName, 115200, Parity.None, 8, StopBits.One)
             {
@@ -1558,7 +1715,7 @@ namespace FP700Win.Fiscal
 
         public AddTextToFiscalReceiptResponse AddTextToFiscalReceipt(string text)
         {
-            return (AddTextToFiscalReceiptResponse)SendMessage(new AddTextToFiscalReceiptCommand(text), (byte[] bytes) => new AddTextToFiscalReceiptResponse(bytes));
+            return (AddTextToFiscalReceiptResponse)SendMessage(new AddTextCommand(text, _isFiscal), (byte[] bytes) => new AddTextToFiscalReceiptResponse(bytes));
         }
 
         /// <summary>

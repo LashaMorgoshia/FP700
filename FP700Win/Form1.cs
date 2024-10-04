@@ -1,4 +1,4 @@
-﻿using FP700Win.Fiscal;
+﻿using FiscalPrinter;
 using FP700Win.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ namespace FP700Win
     public partial class Form1 : Form
     {
         private readonly FP700 _fp700;
-        private readonly IMessageAggregator _messenger;
+        // private readonly IMessageAggregator _messenger;
         private readonly List<ItemInfo> _items;
 
         public Form1()
@@ -17,7 +17,7 @@ namespace FP700Win
             InitializeComponent();
 
             _fp700 = new FP700("COM3");
-            _messenger = new MessageAggregator();
+            // _messenger = new MessageAggregator();
             _items = new List<ItemInfo>();
         }
 
@@ -33,85 +33,120 @@ namespace FP700Win
         private void button1_Click(object sender, EventArgs e)
         {
             Sale();
-
-            //PrintXReport();
         }
 
         public void Sale()
         {
             try
             {
+                // Open a fiscal receipt with operator code "001" and password "1"
                 OpenFiscalReceiptResponse response = this._fp700.OpenFiscalReceipt("001", "1");
-                this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(response));
+                // this.SendFiscalMessage(response);
 
+                // Iterate through each item and register the sale
                 foreach (var item in _items)
                 {
-                    RegisterSaleResponse res = this._fp700.RegisterSale(item.Code, item.Price, item.Qty, 1, TaxCode.A);
-                    this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(res));
+                    RegisterSaleResponse res = this._fp700.RegisterSale(
+                        item.Code,    // Item name (up to 32 characters)
+                        item.Price,   // Price of the item
+                        item.Qty,     // Quantity of the item
+                        1,            // Department number (1 to 16)
+                        TaxCode.A     // Tax code (default is TaxCode.A)
+                    );
+                   // this.SendFiscalMessage(res);
                 }
+
+                // Calculate the total with cash payment mode
                 CalculateTotalResponse response2 = this._fp700.Total(PaymentMode.Cash);
-                this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(response2));
+                //this.SendFiscalMessage(response2);
+
+                // Close the fiscal receipt
                 CloseFiscalReceiptResponse response3 = this._fp700.CloseFiscalReceipt();
-                this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(response3));
+                //this.SendFiscalMessage(response3);
             }
             catch (Exception ex)
             {
-                this._messenger.Publish<EcrThrewExceptionEvent>(new EcrThrewExceptionEvent(ex));
+                // Handle any exceptions by sending an error message
+                //this.SendFiscalMessage(ex);
             }
         }
 
-        
 
-        public void PrintZReport()
-        {
-            try
-            {
-                PrintReportResponse res = _fp700.PrintReport(ReportType.Z);
-                _messenger.Publish(new EcrRespondedEvent(res));
-            }
-            catch (Exception ex)
-            {
-                _messenger.Publish(new EcrThrewExceptionEvent(ex));
-            }
-        }
+        //public void Sale()
+        //{
+        //    try
+        //    {
+        //        OpenFiscalReceiptResponse response = this._fp700.OpenFiscalReceipt("001", "1");
+        //        this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(response));
 
-        public void PrintXReport()
-        {
-            try
-            {
-                PrintReportResponse res = _fp700.PrintReport(ReportType.X);
-                _messenger.Publish(new EcrRespondedEvent(res));
-            }
-            catch (Exception ex)
-            {
-                _messenger.Publish(new EcrThrewExceptionEvent(ex));
-            }
-        }
+        //        foreach (var item in _items)
+        //        {
+        //            RegisterSaleResponse res = this._fp700.RegisterSale(item.Code, item.Price, item.Qty, 1, TaxCode.A);
+        //            this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(res));
+        //        }
+        //        CalculateTotalResponse response2 = this._fp700.Total(PaymentMode.Cash);
+        //        this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(response2));
+        //        CloseFiscalReceiptResponse response3 = this._fp700.CloseFiscalReceipt();
+        //        this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(response3));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        this._messenger.Publish<EcrThrewExceptionEvent>(new EcrThrewExceptionEvent(ex));
+        //    }
+        //}
 
-        public void GetLastFiscalEntryInfo()
-        {
-            try
-            {
-                GetLastFiscalEntryInfoResponse res = _fp700.GetLastFiscalEntryInfo();
-                _messenger.Publish(new EcrRespondedEvent(res));
-            }
-            catch (Exception ex)
-            {
-                _messenger.Publish(new EcrThrewExceptionEvent(ex));
-            }
-        }
 
-        public void ReadStatus()
-        {
-            try
-            {
-                ReadStatusResponse res = _fp700.ReadStatus();
-                _messenger.Publish(new EcrRespondedEvent(res));
-            }
-            catch (Exception ex)
-            {
-                _messenger.Publish(new EcrThrewExceptionEvent(ex));
-            }
-        }
+
+        //public void PrintZReport()
+        //{
+        //    try
+        //    {
+        //        PrintReportResponse res = _fp700.PrintReport(ReportType.Z);
+        //        _messenger.Publish(new EcrRespondedEvent(res));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _messenger.Publish(new EcrThrewExceptionEvent(ex));
+        //    }
+        //}
+
+        //public void PrintXReport()
+        //{
+        //    try
+        //    {
+        //        PrintReportResponse res = _fp700.PrintReport(ReportType.X);
+        //        _messenger.Publish(new EcrRespondedEvent(res));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _messenger.Publish(new EcrThrewExceptionEvent(ex));
+        //    }
+        //}
+
+        //public void GetLastFiscalEntryInfo()
+        //{
+        //    try
+        //    {
+        //        GetLastFiscalEntryInfoResponse res = _fp700.GetLastFiscalEntryInfo();
+        //        _messenger.Publish(new EcrRespondedEvent(res));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _messenger.Publish(new EcrThrewExceptionEvent(ex));
+        //    }
+        //}
+
+        //public void ReadStatus()
+        //{
+        //    try
+        //    {
+        //        ReadStatusResponse res = _fp700.ReadStatus();
+        //        _messenger.Publish(new EcrRespondedEvent(res));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _messenger.Publish(new EcrThrewExceptionEvent(ex));
+        //    }
+        //}
     }
 }
