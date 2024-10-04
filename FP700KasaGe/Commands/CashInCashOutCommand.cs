@@ -12,7 +12,7 @@ namespace FP700KasaGe.Commands
         public CashInCashOutCommand(int type, decimal amount)
         {
             Command = 70;
-            Data = new object[2] { type, amount }.StringJoin("\t");
+            Data = new object[2] { type, amount }.Merge("\t");
         }
     }
 }

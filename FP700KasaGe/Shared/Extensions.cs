@@ -7,26 +7,26 @@ namespace FP700KasaGe.Shared
 {
     internal static class Extensions
     {
-        private static readonly NumberFormatInfo Nfi;
+        private static readonly NumberFormatInfo _numFormatInfo;
 
         static Extensions()
         {
-            Nfi = new NumberFormatInfo
+            _numFormatInfo = new NumberFormatInfo
             {
                 NumberDecimalSeparator = "."
             };
         }
 
-        internal static string StringJoin(this IEnumerable<object> enumerable, string separator)
+        internal static string Merge(this IEnumerable<object> enumerable, string separator)
         {
             return string.Join("", enumerable.Select(delegate (object x)
             {
-                string text = ((!(x.GetType() == typeof(decimal))) ? x.ToString() : ((decimal)x).ToString(Nfi));
+                string text = ((!(x.GetType() == typeof(decimal))) ? x.ToString() : ((decimal)x).ToString(_numFormatInfo));
                 return text + separator;
             }).ToArray());
         }
 
-        public static string GetString(this byte[] buffer)
+        public static string ToString(this byte[] buffer)
         {
             return Encoding.GetEncoding(1251).GetString(buffer);
         }

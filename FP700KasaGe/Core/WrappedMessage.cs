@@ -62,7 +62,7 @@ namespace FP700KasaGe.Core
         {
             if (Data.Length > 213)
             {
-                throw new InvalidDataException("Lenght of the packet exceeds the limits.");
+                throw new InvalidDataException("Packet lenght exceeds the limits.");
             }
             int i = 0;
             string dataConverted = toAnsi(Data);

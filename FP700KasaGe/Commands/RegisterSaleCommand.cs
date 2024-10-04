@@ -21,13 +21,13 @@ namespace FP700KasaGe.Commands
             0,
             string.Empty,
             departmentNumber
-            }.StringJoin("\t");
+            }.Merge("\t");
         }
 
         public RegisterSaleCommand(string pluName, int taxCode, decimal price, int departmentNumber, decimal qty, int discountType, decimal discountValue)
         {
             Command = 49;
-            Data = new object[7] { pluName, taxCode, price, qty, discountType, discountValue, departmentNumber }.StringJoin("\t");
+            Data = new object[7] { pluName, taxCode, price, qty, discountType, discountValue, departmentNumber }.Merge("\t");
         }
     }
 }

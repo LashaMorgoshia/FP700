@@ -12,7 +12,7 @@ namespace FP700KasaGe.Commands
         public PlaySoundCommand(int frequency, int interval)
         {
             Command = 80;
-            Data = new object[2] { frequency, interval }.StringJoin("\t");
+            Data = new object[2] { frequency, interval }.Merge("\t");
         }
     }
 }

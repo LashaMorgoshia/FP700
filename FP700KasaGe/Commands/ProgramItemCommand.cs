@@ -28,7 +28,7 @@ namespace FP700KasaGe.Commands
             "",
             "",
             name
-            }.StringJoin("\t");
+            }.Merge("\t");
         }
     }
 }

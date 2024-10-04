@@ -18,7 +18,7 @@ namespace FP700KasaGe.Commands
             opPwd,
             string.Empty,
             0
-            }.StringJoin("\t");
+            }.Merge("\t");
         }
 
         public OpenFiscalReceiptCommand(string opCode, string opPwd, int type)
@@ -30,13 +30,13 @@ namespace FP700KasaGe.Commands
             opPwd,
             string.Empty,
             type
-            }.StringJoin("\t");
+            }.Merge("\t");
         }
 
         public OpenFiscalReceiptCommand(string opCode, string opPwd, int type, int tillNumber)
         {
             Command = 48;
-            Data = new object[4] { opCode, opPwd, tillNumber, type }.StringJoin("\t");
+            Data = new object[4] { opCode, opPwd, tillNumber, type }.Merge("\t");
         }
     }
 }

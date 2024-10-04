@@ -12,13 +12,13 @@ namespace FP700KasaGe.Commands
         public RegisterProgrammedItemSaleCommand(int pluCode, decimal qty, decimal price)
         {
             Command = 58;
-            Data = new object[3] { pluCode, qty, price }.StringJoin("\t");
+            Data = new object[3] { pluCode, qty, price }.Merge("\t");
         }
 
         public RegisterProgrammedItemSaleCommand(int pluCode, decimal qty, decimal price, int discountType, decimal discountValue)
         {
             Command = 58;
-            Data = new object[5] { pluCode, qty, price, discountType, discountValue }.StringJoin("\t");
+            Data = new object[5] { pluCode, qty, price, discountType, discountValue }.Merge("\t");
         }
     }
 

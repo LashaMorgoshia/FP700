@@ -52,7 +52,7 @@ namespace FP700KasaGe.Core
             }
             if (dataBytes.First() != 48)
             {
-                ErrorCode = dataBytes.GetString();
+                ErrorCode = Extensions.ToString(dataBytes);
             }
             else
             {
@@ -64,7 +64,7 @@ namespace FP700KasaGe.Core
         {
             if (CommandPassed)
             {
-                return Data.GetString().Split('\t');
+                return Extensions.ToString(Data).Split('\t');
             }
             return new string[0];
         }
