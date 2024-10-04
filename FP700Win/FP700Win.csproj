@@ -60,16 +60,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Events\EcrRespondedEvent.cs" />
-    <Compile Include="Events\EcrThrewExceptionEvent.cs" />
+    <Compile Include="Fiscal\Commands.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Implementation\MessageAggregator.cs" />
-    <Compile Include="Interfaces\IMessageAggregator.cs" />
     <Compile Include="Models\ItemInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,12 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FP700KasaGe\FP700KasaGe.csproj">
-      <Project>{4B06AFC7-6D02-413A-AD26-9049D52412B7}</Project>
-      <Name>FP700KasaGe</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

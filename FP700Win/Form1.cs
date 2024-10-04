@@ -1,9 +1,4 @@
-﻿using FP700KasaGe;
-using FP700KasaGe.Commands;
-using FP700KasaGe.Responses;
-using FP700Win.Events;
-using FP700Win.Implementation;
-using FP700Win.Interfaces;
+﻿using FP700Win.Fiscal;
 using FP700Win.Models;
 using System;
 using System.Collections.Generic;
