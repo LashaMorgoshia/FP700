@@ -6,6 +6,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
+using System.Security.Policy;
 using System.Text;
 
 namespace FiscalPrinter
@@ -244,43 +245,39 @@ namespace FiscalPrinter
         }
     }
 
-    internal class CalculateTotalCommand : WrappedMessage
+    internal class CalculateTotalCommand : FiscalCommand
     {
-        public override int Command { get; }
+        public override int Command => 53;
 
-        public override string Data { get; }
-
-        public CalculateTotalCommand(int paymentMode)
+        public CalculateTotalCommand(PaymentMode paymentMode)
+            : base(new[] { ((int)paymentMode).ToString(), "", "" })
         {
-            Command = 53;
-            Data = paymentMode + "\t\t";
         }
     }
 
-    internal class CashInCashOutCommand : WrappedMessage
+    internal class CashInCashOutCommand : FiscalCommand
     {
-        public override int Command { get; }
+        public override int Command => 70;
 
-        public override string Data { get; }
-
-        public CashInCashOutCommand(int type, decimal amount)
+        public CashInCashOutCommand(CashOperation type, decimal amount)
+            : base(new[] { ((int)type).ToString(), amount.ToString(CultureInfo.InvariantCulture) })
         {
-            Command = 70;
-            Data = new object[2] { type, amount }.Merge("\t");
         }
     }
 
-    internal class CloseFiscalReceiptCommand : WrappedMessage
+    internal class CloseFiscalReceiptCommand : FiscalCommand
     {
-        public override int Command { get; }
+        public override int Command => 56;
 
-        public override string Data { get; }
-
-        public CloseFiscalReceiptCommand()
+        public CloseFiscalReceiptCommand(string[] parameters) : base(parameters)
         {
-            Command = 56;
-            Data = string.Empty;
         }
+
+        //public CloseFiscalReceiptCommand()
+        //{
+        //    Command = 56;
+        //    Data = string.Empty;
+        //}
     }
 
     internal class CloseNonFiscalReceiptCommand : WrappedMessage
@@ -348,42 +345,52 @@ namespace FiscalPrinter
         }
     }
 
-    internal class OpenFiscalReceiptCommand : WrappedMessage
+    internal class OpenFiscalReceiptCommand : FiscalCommand
     {
-        public override int Command { get; }
+        public override int Command => 48;
 
-        public override string Data { get; }
-
-        public OpenFiscalReceiptCommand(string opCode, string opPwd)
+        public OpenFiscalReceiptCommand(string opCode, string opPwd, ReceiptType type = ReceiptType.Sale, int tillNumber = 0)
+            : base(new[] { opCode, opPwd, string.Empty, "0" })
         {
-            Command = 48;
-            Data = new object[4]
-            {
-            opCode,
-            opPwd,
-            string.Empty,
-            0
-            }.Merge("\t");
-        }
-
-        public OpenFiscalReceiptCommand(string opCode, string opPwd, int type)
-        {
-            Command = 48;
-            Data = new object[4]
-            {
-            opCode,
-            opPwd,
-            string.Empty,
-            type
-            }.Merge("\t");
-        }
-
-        public OpenFiscalReceiptCommand(string opCode, string opPwd, int type, int tillNumber)
-        {
-            Command = 48;
-            Data = new object[4] { opCode, opPwd, tillNumber, type }.Merge("\t");
         }
     }
+
+    //internal class OpenFiscalReceiptCommand : WrappedMessage
+    //{
+    //    public override int Command { get; }
+
+    //    public override string Data { get; }
+
+    //    public OpenFiscalReceiptCommand(string opCode, string opPwd)
+    //    {
+    //        Command = 48;
+    //        Data = new object[4]
+    //        {
+    //        opCode,
+    //        opPwd,
+    //        string.Empty,
+    //        0
+    //        }.Merge("\t");
+    //    }
+
+    //    public OpenFiscalReceiptCommand(string opCode, string opPwd, int type)
+    //    {
+    //        Command = 48;
+    //        Data = new object[4]
+    //        {
+    //        opCode,
+    //        opPwd,
+    //        string.Empty,
+    //        type
+    //        }.Merge("\t");
+    //    }
+
+    //    public OpenFiscalReceiptCommand(string opCode, string opPwd, int type, int tillNumber)
+    //    {
+    //        Command = 48;
+    //        Data = new object[4] { opCode, opPwd, tillNumber, type }.Merge("\t");
+    //    }
+    //}
 
     internal class OpenNonFiscalReceiptCommand : WrappedMessage
     {
@@ -1608,7 +1615,7 @@ namespace FiscalPrinter
         /// <returns>OpenFiscalReceiptResponse</returns>
         public OpenFiscalReceiptResponse OpenFiscalReceipt(string opCode, string opPwd, ReceiptType type)
         {
-            return (OpenFiscalReceiptResponse)SendMessage(new OpenFiscalReceiptCommand(opCode, opPwd, (int)type), (byte[] bytes) => new OpenFiscalReceiptResponse(bytes));
+            return (OpenFiscalReceiptResponse)SendMessage(new OpenFiscalReceiptCommand(opCode, opPwd, type), (byte[] bytes) => new OpenFiscalReceiptResponse(bytes));
         }
 
         /// <summary>
@@ -1621,7 +1628,7 @@ namespace FiscalPrinter
         /// <returns>OpenFiscalReceiptResponse</returns>
         public OpenFiscalReceiptResponse OpenFiscalReceipt(string opCode, string opPwd, ReceiptType type, int tillNumber)
         {
-            return (OpenFiscalReceiptResponse)SendMessage(new OpenFiscalReceiptCommand(opCode, opPwd, (int)type, tillNumber), (byte[] bytes) => new OpenFiscalReceiptResponse(bytes));
+            return (OpenFiscalReceiptResponse)SendMessage(new OpenFiscalReceiptCommand(opCode, opPwd, type, tillNumber), (byte[] bytes) => new OpenFiscalReceiptResponse(bytes));
         }
 
         /// <summary>
@@ -1687,7 +1694,7 @@ namespace FiscalPrinter
         /// <returns>CalculateTotalResponse</returns>
         public CalculateTotalResponse Total(PaymentMode paymentMode = PaymentMode.Cash)
         {
-            return (CalculateTotalResponse)SendMessage(new CalculateTotalCommand((int)paymentMode), (byte[] bytes) => new CalculateTotalResponse(bytes));
+            return (CalculateTotalResponse)SendMessage(new CalculateTotalCommand(paymentMode), (byte[] bytes) => new CalculateTotalResponse(bytes));
         }
 
         /// <summary>
@@ -1711,7 +1718,7 @@ namespace FiscalPrinter
         /// <returns>CloseFiscalReceiptResponse</returns>
         public CloseFiscalReceiptResponse CloseFiscalReceipt()
         {
-            return (CloseFiscalReceiptResponse)SendMessage(new CloseFiscalReceiptCommand(), (byte[] bytes) => new CloseFiscalReceiptResponse(bytes));
+            return (CloseFiscalReceiptResponse)SendMessage(new CloseFiscalReceiptCommand(new string[] { string.Empty }), (byte[] bytes) => new CloseFiscalReceiptResponse(bytes));
         }
 
         /// <summary>
@@ -1732,7 +1739,7 @@ namespace FiscalPrinter
         /// <returns>CashInCashOutResponse</returns>
         public CashInCashOutResponse CashInCashOutOperation(CashOperation operationType, decimal amount)
         {
-            return (CashInCashOutResponse)SendMessage(new CashInCashOutCommand((int)operationType, amount), (byte[] bytes) => new CashInCashOutResponse(bytes));
+            return (CashInCashOutResponse)SendMessage(new CashInCashOutCommand(operationType, amount), (byte[] bytes) => new CashInCashOutResponse(bytes));
         }
 
         /// <summary>
