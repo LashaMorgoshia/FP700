@@ -443,7 +443,7 @@ namespace FiscalPrinter
 
         public override string Data { get; }
 
-        public ProgramItemCommand(string name, int plu, TaxGr taxGr, int dep, int group, decimal price, decimal quantity = 9999m, PriceType priceType = PriceType.FixedPrice)
+        public ProgramItemCommand(string name, int plu, TaxGroup taxGr, int dep, int group, decimal price, decimal quantity = 9999m, PriceType priceType = PriceType.FixedPrice)
         {
             Command = 107;
             Data = new object[14]
@@ -1743,7 +1743,7 @@ namespace FiscalPrinter
         /// <param name="operationType">Type of operation</param>
         /// <param name="amount">The sum</param>
         /// <returns>CashInCashOutResponse</returns>
-        public CashInCashOutResponse CashInCashOutOperation(Cash operationType, decimal amount)
+        public CashInCashOutResponse CashInCashOutOperation(CashOperation operationType, decimal amount)
         {
             return (CashInCashOutResponse)SendMessage(new CashInCashOutCommand((int)operationType, amount), (byte[] bytes) => new CashInCashOutResponse(bytes));
         }
@@ -1857,7 +1857,7 @@ namespace FiscalPrinter
         /// <param name="quantity"></param>
         /// <param name="priceType"></param>
         /// <returns></returns>
-        public EmptyFiscalResponse ProgramItem(string name, int plu, TaxGr taxGr, int dep, int group, decimal price, decimal quantity = 9999m, PriceType priceType = PriceType.FixedPrice)
+        public EmptyFiscalResponse ProgramItem(string name, int plu, TaxGroup taxGr, int dep, int group, decimal price, decimal quantity = 9999m, PriceType priceType = PriceType.FixedPrice)
         {
             return (EmptyFiscalResponse)SendMessage(new ProgramItemCommand(name, plu, taxGr, dep, group, price, quantity, priceType), (byte[] bytes) => new EmptyFiscalResponse(bytes));
         }

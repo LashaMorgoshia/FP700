@@ -60,8 +60,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Fiscal\Commands.cs" />
-    <Compile Include="Fiscal\FiscalPrinterV2.cs" />
+    <Compile Include="Fiscal\FiscalPrinterV1.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
