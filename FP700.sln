@@ -5,6 +5,10 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FP700Win", "FP700Win\FP700Win.csproj", "{0D7763C8-BB11-4897-9F5A-506ECE260E6B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalPrinter", "FiscalPrinter\FiscalPrinter.csproj", "{682FA95E-701A-40B7-AED0-CA4DA8378311}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalPrinterNet", "FiscalPrinterNet\FiscalPrinterNet.csproj", "{CEFE227C-CB35-4B47-992B-AE8B2E4BD909}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{0D7763C8-BB11-4897-9F5A-506ECE260E6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D7763C8-BB11-4897-9F5A-506ECE260E6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D7763C8-BB11-4897-9F5A-506ECE260E6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{682FA95E-701A-40B7-AED0-CA4DA8378311}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682FA95E-701A-40B7-AED0-CA4DA8378311}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682FA95E-701A-40B7-AED0-CA4DA8378311}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682FA95E-701A-40B7-AED0-CA4DA8378311}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEFE227C-CB35-4B47-992B-AE8B2E4BD909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEFE227C-CB35-4B47-992B-AE8B2E4BD909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEFE227C-CB35-4B47-992B-AE8B2E4BD909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEFE227C-CB35-4B47-992B-AE8B2E4BD909}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

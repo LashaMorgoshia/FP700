@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.IO.Ports;
+using System.IO;
 using System.Linq;
-using System.Reactive.Linq;
-using System.Reactive.Subjects;
-using System.Security.Policy;
 using System.Text;
+using System.Threading.Tasks;
+using System.Reactive.Subjects;
+using System.Reactive.Linq;
 
-namespace FiscalPrinter
+namespace FiscalPrinterNet
 {
     #region Enums
     /// <summary>
@@ -613,7 +613,7 @@ namespace FiscalPrinter
         }
     }
 
-    public class CashInCashOutResponse : FiscalResponse
+    public class CashIOResponse : FiscalResponse
     {
         /// <summary>
         /// Cash in safe sum 
@@ -635,7 +635,7 @@ namespace FiscalPrinter
         /// </summary>
         public int DocNumber { get; set; }
 
-        public CashInCashOutResponse(byte[] buffer)
+        public CashIOResponse(byte[] buffer)
             : base(buffer)
         {
             string[] values = GetDataValues();
@@ -1363,7 +1363,7 @@ namespace FiscalPrinter
     #endregion
 
     #region Core
-    public class FP700 : IDisposable
+    public class Client : IDisposable
     {
         private SerialPort _port;
 
@@ -1377,10 +1377,10 @@ namespace FiscalPrinter
         /// constructor
         /// </summary>
         /// <param name="portName"></param>
-        public FP700(string portName)
+        public Client(string portName, int port = 115200, Parity parity = Parity.None, int dataBits = 8, StopBits stopBits = StopBits.One)
         {
             _queue = new Queue<byte>();
-            _port = new SerialPort(portName, 115200, Parity.None, 8, StopBits.One)
+            _port = new SerialPort(portName, port, parity, dataBits, stopBits)
             {
                 ReadTimeout = 500,
                 WriteTimeout = 500
@@ -1611,15 +1611,15 @@ namespace FiscalPrinter
         /// <summary>
         /// Adds new Item to open receipt
         /// </summary>
-        /// <param name="pluName">Item name (up to 32 symbols)</param>
-        /// <param name="price">Product price. With sign '-' at void operations;</param>
+        /// <param name="itemCode">Item name (up to 32 symbols)</param>
+        /// <param name="price">Price. With sign '-' at void operations;</param>
         /// <param name="departmentNumber">Between 1 and 16.</param>
-        /// <param name="quantity"> Quantity. NOTE: Max value: {Quantity} * {Price} is 9999999.99</param>
+        /// <param name="qty"> Qty. NOTE: Max value: {Qty} * {Price} is 9999999.99</param>
         /// <param name="taxCode">Optional Parameter. Tax code: 1-A, 2-B, 3-C; default = TaxCode.A</param>
         /// <returns>RegisterSaleResponse</returns>
-        public RegisterSaleResponse RegisterSale(string pluName, decimal price, decimal quantity, int departmentNumber, TaxCode taxCode = TaxCode.A)
+        public RegisterSaleResponse RegisterSale(string itemCode, decimal price, decimal qty, int departmentNumber, TaxCode taxCode = TaxCode.A)
         {
-            return (RegisterSaleResponse)SendMessage(new RegisterSaleCommand(pluName, (int)taxCode, price, departmentNumber, quantity), (byte[] bytes) => new RegisterSaleResponse(bytes));
+            return (RegisterSaleResponse)SendMessage(new RegisterSaleCommand(itemCode, (int)taxCode, price, departmentNumber, qty), (byte[] bytes) => new RegisterSaleResponse(bytes));
         }
 
         /// <summary>
@@ -1714,9 +1714,9 @@ namespace FiscalPrinter
         /// <param name="operationType">Type of operation</param>
         /// <param name="amount">The sum</param>
         /// <returns>CashInCashOutResponse</returns>
-        public CashInCashOutResponse CashInCashOutOperation(CashOperation operationType, decimal amount)
+        public CashIOResponse CashInCashOutOperation(CashOperation operationType, decimal amount)
         {
-            return (CashInCashOutResponse)SendMessage(new CashIOCommand(operationType, amount), (byte[] bytes) => new CashInCashOutResponse(bytes));
+            return (CashIOResponse)SendMessage(new CashIOCommand(operationType, amount), (byte[] bytes) => new CashIOResponse(bytes));
         }
 
         /// <summary>
@@ -1821,16 +1821,16 @@ namespace FiscalPrinter
         /// </summary>
         /// <param name="name"></param>
         /// <param name="plu"></param>
-        /// <param name="taxGr"></param>
+        /// <param name="taxGroup"></param>
         /// <param name="dep"></param>
         /// <param name="group"></param>
         /// <param name="price"></param>
         /// <param name="quantity"></param>
         /// <param name="priceType"></param>
         /// <returns></returns>
-        public EmptyFiscalResponse ProgramItem(string name, int plu, TaxGroup taxGr, int dep, int group, decimal price, decimal quantity = 9999m, PriceType priceType = PriceType.FixedPrice)
+        public EmptyFiscalResponse ProgramItem(string name, int plu, TaxGroup taxGroup, int dep, int group, decimal price, decimal quantity = 9999m, PriceType priceType = PriceType.FixedPrice)
         {
-            return (EmptyFiscalResponse)SendMessage(new ProgramItemCommand(name, plu, taxGr, dep, group, price, quantity, priceType), (byte[] bytes) => new EmptyFiscalResponse(bytes));
+            return (EmptyFiscalResponse)SendMessage(new ProgramItemCommand(name, plu, taxGroup, dep, group, price, quantity, priceType), (byte[] bytes) => new EmptyFiscalResponse(bytes));
         }
     }
     #endregion

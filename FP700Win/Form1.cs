@@ -1,4 +1,4 @@
-﻿using FiscalPrinter;
+﻿using FiscalPrinterNet;
 using FP700Win.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ namespace FP700Win
 {
     public partial class Form1 : Form
     {
-        private readonly FP700 _fp700;
+        private readonly Client _fp700;
         private readonly IMessageAggregator _messenger;
         private readonly List<ItemInfo> _items;
 
@@ -18,7 +18,7 @@ namespace FP700Win
             InitializeComponent();
 
             var ports = SerialPort.GetPortNames();
-            _fp700 = new FP700(ports[ports.Length - 1]);
+            _fp700 = new Client(ports[ports.Length - 1]);
             _messenger = new MessageAggregator();
             _items = new List<ItemInfo>();
         }
