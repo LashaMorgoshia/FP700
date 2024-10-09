@@ -34,10 +34,11 @@ namespace FP700Win
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Sale();
+            CashSale();
+            CardSale();
         }
 
-        public void Sale()
+        public void CashSale()
         {
             try
             {
@@ -60,6 +61,28 @@ namespace FP700Win
             }
         }
 
+        public void CardSale()
+        {
+            try
+            {
+                OpenFiscalReceiptResponse response = this._fp700.OpenFiscalReceipt("001", "1");
+                this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(response));
+
+                foreach (var item in _items)
+                {
+                    RegisterSaleResponse res = this._fp700.RegisterSale(item.Code, item.Price, item.Qty, 1, TaxCode.A);
+                    this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(res));
+                }
+                CalculateTotalResponse response2 = this._fp700.Total(PaymentMode.Card);
+                this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(response2));
+                CloseFiscalReceiptResponse response3 = this._fp700.CloseFiscalReceipt();
+                this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(response3));
+            }
+            catch (Exception ex)
+            {
+                this._messenger.Publish<EcrThrewExceptionEvent>(new EcrThrewExceptionEvent(ex));
+            }
+        }
 
         public void PrintZReport()
         {
