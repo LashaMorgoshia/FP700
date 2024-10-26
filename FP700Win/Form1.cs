@@ -45,6 +45,10 @@ namespace FP700Win
                 OpenFiscalReceiptResponse response = this._fp700.OpenFiscalReceipt("001", "1");
                 this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(response));
 
+                this._fp700.AddTextToFiscalReceipt("-");
+                this._fp700.AddTextToFiscalReceipt("Davit Rusia 00293482304");
+                this._fp700.AddTextToFiscalReceipt("-");
+
                 foreach (var item in _items)
                 {
                     RegisterSaleResponse res = this._fp700.RegisterSale(item.Code, item.Price, item.Qty, 1, TaxCode.A);
