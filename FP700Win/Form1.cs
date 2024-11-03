@@ -46,7 +46,7 @@ namespace FP700Win
                 this._messenger.Publish<EcrRespondedEvent>(new EcrRespondedEvent(response));
 
                 this._fp700.AddTextToFiscalReceipt("-");
-                this._fp700.AddTextToFiscalReceipt("Davit Rusia 00293482304");
+                this._fp700.AddTextToFiscalReceipt("სახელი გვარი 00010100101");
                 this._fp700.AddTextToFiscalReceipt("-");
 
                 foreach (var item in _items)
